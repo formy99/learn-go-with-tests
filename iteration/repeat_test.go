@@ -5,22 +5,26 @@ import (
 	"testing"
 )
 
-func TestRepeat(t *testing.T) {
-	repeated := Repeat("a", 6)
-	expected := "aaaaaa"
-
-	if repeated != expected {
-		t.Errorf("expected '%q' , but got '%q'", expected, repeated)
+func TestRepeater(t *testing.T) {
+	assertCorrentMessage := func(t testing.TB, got, want string) {
+		if got != want {
+			t.Errorf("got %q, want %q", got, want)
+		}
 	}
+
+	got := Repeater("a", 6)
+	want := "aaaaaa"
+	assertCorrentMessage(t, got, want)
 }
 
-func BenchmarkRepeat(b *testing.B) {
+func ExampleRepeater() {
+	repstr := Repeater("b", 6)
+	fmt.Println(repstr)
+	// Output: bbbbbb
+}
+
+func BenchmarkRepeater(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Repeat("a", 5)
+		Repeater("b", 10)
 	}
-}
-func ExampleRepeat() {
-	expected := Repeat("a", 5)
-	fmt.Println(expected)
-	// Output: aaaaa
 }
