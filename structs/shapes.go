@@ -23,10 +23,19 @@ type Circle struct {
 	Radius float64
 }
 
+type Triangle struct {
+	Width  float64
+	Height float64
+}
+
 func (r Rectangle) Area() float64 {
 	return r.Width * r.Height
 }
 
 func (c Circle) Area() float64 {
 	return c.Radius * c.Radius * math.Pi
+}
+
+func (t Triangle) Area() float64 {
+	return t.Height * t.Width * 0.5
 }

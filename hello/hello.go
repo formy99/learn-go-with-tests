@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "math"
 
 const englishHelloPrefix = "Hello, "
 const spanishHelloPrefix = "Hola, "
@@ -31,6 +31,8 @@ func languagueSwitcher(language string) (prefix string) {
 	return
 }
 func main() {
-	fmt.Println(Hello("Chriss", "English"))
-
+	//want := math.Sqrt(10.00) * math.Pi
+	//print(math.(10.00) * math.Pi)
+	//math.Abs(10.00)
+	print(math.Abs(10.00))
 }
