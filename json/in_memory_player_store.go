@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func NewInMemoryPlayerStore() *InMemoryPlayerStore {
 	return &InMemoryPlayerStore{map[string]int{}, nil}
 }
@@ -11,6 +13,8 @@ type InMemoryPlayerStore struct {
 
 func (i *InMemoryPlayerStore) RecordWin(name string) {
 	i.store[name]++
+
+	fmt.Println(i.store)
 }
 
 func (i *InMemoryPlayerStore) GetPlayerScore(name string) int {
@@ -18,5 +22,10 @@ func (i *InMemoryPlayerStore) GetPlayerScore(name string) int {
 }
 
 func (i *InMemoryPlayerStore) GetLeague() []Player {
-	return nil
+	var league []Player
+	for name, wins := range i.store {
+		league = append(league, Player{name, wins})
+	}
+	return league
+
 }
